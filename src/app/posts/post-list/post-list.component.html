@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <div class="col-md-12">
+        <div class="mb-4">
+            <h1 style="color:#145562;" class="display-4 text-center">WELCOME TO LITAL'S BLOGGING APP</h1>
+            <hr/>
+        </div>
+        <div *ngIf="listHasPosts; else noPosts">
+            <h1 style="color:#063039;" class="display-4 text-center mb-4">All Posts</h1>
+            <div class="row">
+                <div class="col col-lg-1"></div>
+                <div class="col col-lg-10">
+                    <app-post-list-item [currentPost]="p" *ngFor="let p of postList"></app-post-list-item>
+                </div>
+                <div class="col col-lg-1"></div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <button [routerLink]="['/new-post']" class="btn btn-dark">Create a New Post</button>
+                </div>
+            </div>
+        </div>
+        <ng-template #noPosts> 
+            <div class="text-center">
+                <h1 class="mt-5 mb-4">No Posts Yet!</h1>  
+                <button [routerLink]="['/new-post']" class="btn btn-primary">Create a New Post</button>
+            </div>
+        </ng-template>
+    </div>
+</div>

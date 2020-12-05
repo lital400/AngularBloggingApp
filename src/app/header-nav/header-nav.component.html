@@ -1,0 +1,17 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-sm mb-3">
+    <div class="container container-fluid">
+        <a class="navbar-brand text-white" [routerLink]="['/posts']">My Blogging App</a>
+        <div class="navbar-collapse collapse">
+            <div class="navbar-nav flex-grow-1">
+              <a class="nav-item nav-link ml-3 mr-2" [routerLink]="['/new-user']">Create Account</a>
+              <a class="nav-item nav-link" [routerLink]="['/new-post']">Create Post</a>
+            </div>
+            <div class="navbar-right">
+                <ul class="navbar-nav">
+                    <li><a *ngIf="!userLoggedIn" class="nav-link text-light" [routerLink]="['/login']">Login</a></li>
+                    <li><a *ngIf="userLoggedIn" class="nav-link text-light" (click)="LogOutUser()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

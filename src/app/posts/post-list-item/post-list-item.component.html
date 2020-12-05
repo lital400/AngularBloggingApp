@@ -1,0 +1,23 @@
+<div class="list-group-item clearfix">
+    <div class="pull-left">
+        <h2 class="text-break mb-3">{{currentPost.title}}</h2>
+        <h6 class="text-break"><b>UserId: </b> <span style="color: #128EA7;">{{currentPost.userId}}</span></h6>
+        <h6 class="text-break"><b>Date Created: </b> <span style="color: #128EA7;">{{ currentPost.createdDate | date:'shortDate' }}</span></h6>
+        <hr/>
+    </div>
+    <div class="row mb-4">
+        <div class="col col-lg-6">
+            <p class="text-break">{{currentPost.content}}</p>
+        </div>
+        <div class="col col-lg-5">
+            <img class="img-responsive" [src]="currentPost.headerImage" style="max-height: 300px; max-width: 400px;" />
+        </div>
+    </div>
+    <span *ngIf="currentUserPost">
+        <button [routerLink]="['/edit-post']" [state]="currentPost" class="btn btn-info mr-3">Edit Post</button>
+        <button (click)="confirmDelete()" class="btn btn-danger">Delete Post</button>
+    </span>
+    <div *ngIf="deleteConfirm">
+        <app-post-delete (cancelDeleteEvent)="onCancelDeleteEvent($event)" [currentPost]="currentPost"></app-post-delete>
+    </div>
+</div><br/>

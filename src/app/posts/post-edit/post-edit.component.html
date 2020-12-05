@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <div class="col-md-12">
+        <div>
+            <h1 class="display-5 mb-3">Edit Post</h1>
+            <form>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label for="userId" class="col-form-label">Post Title: </label>
+                        <input [(ngModel)]="currentPost.title" type="text" class="form-control" name="title" maxlength="35"/>
+                    </div>
+                </div>
+                <div class="form-group">                      
+                    <div class="col-md-6">
+                        <label for="firstName" class="col-form-label">Post Content: </label>
+                        <textarea [(ngModel)]="currentPost.content" type="text" name="content" class="form-control" rows="7"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">                      
+                    <div class="col-md-6">
+                        <label for="lastName" class="col-form-label">Header Image: </label>
+                        <input [(ngModel)]="currentPost.headerImage" type="text" class="form-control" name="headerImage"/>
+                    </div>
+                </div>
+                <div class="form-group">                      
+                    <div *ngIf="errorMsg!=''" class="col-md-6 ml-3 alert alert-danger" role="alert">
+                        {{errorMsg}} 
+                    </div>
+                </div>
+                <div class="form-group">                      
+                    <div class="col-md-6 mt-4">
+                        <input type="submit" (click)="EditPost()" class="btn btn-primary mr-3" value="Edit Post"/>
+                        <button [routerLink]="['/posts']" class="btn btn-danger">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
